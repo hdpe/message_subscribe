@@ -201,7 +201,8 @@ class SubscriptionController extends ControllerBase {
       // Check that the flag is valid.
       $rel_flag = $this->flagService->getFlagById($relationship['flag']);
       if (!$rel_flag || (!$rel_flag->status())) {
-        throw new MessageSubscribeException('Flag "' . $relationships['flag'] . '" is not setup correctly. It is probably disabled or have no bundles configured.');
+        continue;
+        // throw new MessageSubscribeException('Flag "' . $relationships['flag'] . '" is not setup correctly. It is probably disabled or have no bundles configured.');
       }
     }
 
