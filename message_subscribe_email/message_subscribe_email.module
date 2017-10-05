@@ -21,7 +21,7 @@ function message_subscribe_email_flag_action_access($action, FlagInterface $flag
 
     // Get the other flags on that same content.
     /** @var \Drupal\flag\FlaggingInterface[] $user_flaggings */
-    $user_flaggings = \Drupal::service('flag')->getAllEntityFlaggings($flaggable, $account);
+    $user_flaggings = \Drupal::service('flag')->getAllEntityFlaggings($flaggable, $account, \Drupal::request()->getSession()->getId());
     $user_flags = [];
     foreach ($user_flaggings as $flagging) {
       $user_flags[$flagging->getFlagId()] = $flagging;
